@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LAJOPSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.9; }
+        }
+        @keyframes slide-in {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+        .animate-slide-in { animation: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        .nav-blur {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .text-primary { color: #0A2540; }
+        .bg-primary { background-color: #0A2540; }
+        .text-accent { color: #635BFF; }
+        .bg-accent { background-color: #635BFF; }
+        .gradient-text {
+            background: linear-gradient(135deg, #0A2540 0%, #635BFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #0A2540;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-display { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .abstract-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+        .abstract-shapes div {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(60px);
+        }
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: #635BFF;
+            top: -150px;
+            left: -150px;
+            animation: float 15s ease-in-out infinite;
+        }
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: #0A2540;
+            bottom: -100px;
+            right: -100px;
+            animation: float 18s ease-in-out infinite reverse;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Floating Navigation -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-6xl">
+        <div class="nav-blur rounded-2xl px-4 sm:px-6 py-4 glass-effect">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-display font-bold text-lg sm:text-xl text-primary flex items-center">
+                    <i class="fas fa-shield-alt mr-2 text-accent"></i> LAJOPSS
+                </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="index.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="editorial-team.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-users mr-2"></i> Editorial Team
+                    </a>
+                    <a href="contact.html" class="text-sm lg:text-base text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Contact
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-4 bg-white/90 backdrop-blur-lg rounded-xl p-4">
+                <a href="index.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-home mr-3"></i> Home
+                </a>
+                <a href="editorial-team.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-users mr-3"></i> Editorial Team
+                </a>
+                <a href="contact.html" class="text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-3"></i> Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center relative z-10">
+                <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-6">Get in Touch</span>
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 gradient-text tracking-tight">Contact Us</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Get in touch with our editorial team for inquiries, submissions, or general information.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#F6F8FA,_transparent_70%)]"></div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-24 relative">
+        <div class="abstract-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Contact Information Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Address Card -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-[2rem] p-8 bg-white/40 h-full flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center 
+                                transition-all duration-300 hover:bg-accent hover:text-white transform hover:scale-110 mb-6">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-4">Address</h3>
+                            <p class="text-gray-600 leading-relaxed">Centre for Peace and Security Studies, Lagos State University, Ojo, Lagos, Nigeria</p>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-[2rem] p-8 bg-white/40 h-full flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center 
+                                transition-all duration-300 hover:bg-accent hover:text-white transform hover:scale-110 mb-6">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-4">Email</h3>
+                            <a href="mailto:lajopss@lasu.edu.ng" 
+                               class="text-accent hover:text-primary transition-colors duration-300 font-medium">
+                                lajopss@lasu.edu.ng
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-[2rem] p-8 bg-white/40 h-full flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center 
+                                transition-all duration-300 hover:bg-accent hover:text-white transform hover:scale-110 mb-6">
+                                <i class="fas fa-phone text-2xl"></i>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-4">Phone</h3>
+                            <p class="text-gray-600">+234 803 333 2355</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A2540] text-gray-300 py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_#635BFF08,_transparent_50%)]"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="mb-8 md:mb-0">
+                    <div class="font-display font-bold text-2xl text-white mb-6 flex items-center">
+                        <i class="fas fa-shield-alt mr-3 text-accent"></i> LAJOPSS
+                    </div>
+                    <p class="text-gray-400 mb-4">LASU Journal of Peace and Security Studies</p>
+                    <p class="text-gray-400 px-3 py-1 bg-white/5 inline-block rounded-md">ISSN: XXXX-XXXX</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            About Journal
+                        </a></li>
+                        <li><a href="index.html#scope" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Aims & Scope
+                        </a></li>
+                        <li><a href="editorial-team.html" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Editorial Team
+                        </a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Contact
+                        </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 group">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-gray-400">Centre for Peace and Security Studies, Lagos State University, Ojo, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-center gap-3 group">
+                            <i class="fas fa-envelope text-accent group-hover:scale-110 transition-transform duration-300"></i>
+                            <a href="mailto:lajopss@lasu.edu.ng" class="text-gray-400 hover:text-accent transition-colors duration-300">lajopss@lasu.edu.ng</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Follow Us</h4>
+                    <div class="flex space-x-6">
+                        <a href="https://www.facebook.com/profile.php?id=61578610326810&sk=about_contact_and_basic_info" 
+                           class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/lajopss?s=11" 
+                           class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Lagos State University, Ojo. Centre for Peace and Security Studies (CPSS). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

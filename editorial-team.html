@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Team - LAJOPSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.9; }
+        }
+        @keyframes slide-in {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+        .animate-slide-in { animation: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        .nav-blur {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .text-primary { color: #0A2540; }
+        .bg-primary { background-color: #0A2540; }
+        .text-accent { color: #635BFF; }
+        .bg-accent { background-color: #635BFF; }
+        .gradient-text {
+            background: linear-gradient(135deg, #0A2540 0%, #635BFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #0A2540;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-display { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .abstract-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+        .abstract-shapes div {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(60px);
+        }
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: #635BFF;
+            top: -150px;
+            left: -150px;
+            animation: float 15s ease-in-out infinite;
+        }
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: #0A2540;
+            bottom: -100px;
+            right: -100px;
+            animation: float 18s ease-in-out infinite reverse;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Floating Navigation -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-6xl">
+        <div class="nav-blur rounded-2xl px-4 sm:px-6 py-4 glass-effect">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-display font-bold text-lg sm:text-xl text-primary flex items-center">
+                    <i class="fas fa-shield-alt mr-2 text-accent"></i> LAJOPSS
+                </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="index.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="editorial-team.html" class="text-sm lg:text-base text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-users mr-2"></i> Editorial Team
+                    </a>
+                    <a href="contact.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Contact
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-4 bg-white/90 backdrop-blur-lg rounded-xl p-4">
+                <a href="index.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-home mr-3"></i> Home
+                </a>
+                <a href="editorial-team.html" class="text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-users mr-3"></i> Editorial Team
+                </a>
+                <a href="contact.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-3"></i> Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center relative z-10">
+                <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-6">Editorial Leadership</span>
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 gradient-text tracking-tight">Editorial Team</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Meet the dedicated scholars and experts who ensure the highest standards of academic excellence in our journal.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#F6F8FA,_transparent_70%)]"></div>
+    </section>
+
+    <!-- Editorial Consultants Section -->
+    <section class="py-24 relative bg-gradient-to-b from-transparent to-[#F6F8FA]">
+        <div class="abstract-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="max-w-xl mx-auto text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-4">Advisory Board</span>
+                <h2 class="font-display text-4xl font-bold mb-6 text-primary">Editorial Consultants</h2>
+                <p class="text-gray-600">Distinguished leaders and experts guiding our academic excellence.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Consultant 1 -->
+                <div class="card-hover">
+                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619321/242cad50-aec2-4704-a53a-0c2f12e242e4_jvg8mk.jpg" alt="Prof. Akinyemi" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. (Sir) Akinwande Bolaji Akinyemi, CFR</h3>
+                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Former Minister of Foreign Affairs</div>
+                        <p class="text-gray-600">President, Academy of International Affairs</p>
+                        <p class="text-gray-500 text-sm">Lagos, Nigeria</p>
+                    </div>
+                </div>
+
+                <!-- Consultant 2 -->
+                <div class="card-hover">
+                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619322/969e04e7-fb21-4eb0-b3a5-8f04eafd9f6b_fzrisi.jpg" alt="Prof. Olatunji-Bello" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Ibiyemi Ibilola Olatunji-Bello, mni, NPOM, FSPSP</h3>
+                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Vice Chancellor</div>
+                        <p class="text-gray-600">Lagos State University, Ojo</p>
+                    </div>
+                </div>
+
+                <!-- Consultant 3 -->
+                <div class="card-hover">
+                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619323/e0e9a512-17cd-462c-a65c-08261573694b_sdcnet.jpg" alt="Prof. Akinterinwa" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Bolaji Akinterinwa</h3>
+                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Former Director-General, NIIA</div>
+                        <p class="text-gray-600">Achievers University</p>
+                        <p class="text-gray-500 text-sm">Owo, Ondo</p>
+                    </div>
+                </div>
+
+                <!-- Consultant 4 -->
+                <div class="card-hover">
+                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619326/6ca7d825-43de-44e3-9b74-6998e8ce86e2_amg3p7.jpg" alt="Prof. Moghalu" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Kingsley Moghalu</h3>
+                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">President and Vice Chancellor</div>
+                        <p class="text-gray-600">African School of Governance</p>
+                        <p class="text-gray-500 text-sm">Kigali, Rwanda</p>
+                    </div>
+                </div>
+
+                <!-- Consultant 5 -->
+                <div class="card-hover">
+                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619323/a434acbe-ef4d-49da-836c-73f58cd435da_hdnjdz.jpg" alt="Lt Gen Adeosun" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary mb-3">Lt Gen Lamidi O Adeosun (Rtd) CFR</h3>
+                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Military Strategy Expert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Team Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-xl mx-auto text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-4">Core Team</span>
+                <h2 class="font-display text-4xl font-bold mb-6 text-primary">Editorial Team</h2>
+                <p class="text-gray-600">Leading our journal's academic vision and maintaining the highest standards of scholarly excellence.</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <!-- Editor-in-Chief -->
+                <div class="card-hover mb-16">
+                    <div class="glass-effect rounded-3xl p-12 text-center bg-white/40">
+                        <div class="w-40 h-40 mx-auto mb-8 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-2xl"></div>
+                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619123/WhatsApp_Image_2025-07-26_at_23.36.29_qdivgi.jpg" alt="Prof. Falode" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-xl">
+                        </div>
+                        <h3 class="font-display text-3xl font-bold text-primary mb-3">Prof. J. Adewunmi Falode</h3>
+                        <div class="inline-block py-1 px-4 rounded-full bg-accent/10 text-accent font-medium mb-6">Editor-in-Chief</div>
+                        <p class="text-gray-600 text-lg mb-4">Director, Centre for Peace and Security Studies</p>
+                        <p class="text-gray-600">Lagos State University</p>
+                    </div>
+                </div>
+
+                <!-- Managing and Journal Editors -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Managing Editor -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 relative">
+                                <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                                <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619321/9bd03839-8e1b-4ac8-ab7b-f1254ed86e74_ifp6lw.jpg" alt="Wazeer Murtala" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-3">Wazeer Murtala</h3>
+                            <div class="inline-block py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Managing Editor</div>
+                        </div>
+                    </div>
+
+                    <!-- Journal Editor -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 relative">
+                                <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                                <img src="https://res.cloudinary.com/dweovytuc/image/upload/v1753619323/df550228-5484-4ead-bd6a-e1ddc8c4bff2_tigvbx.jpg" alt="Dr. Faseke" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-3">Dr. Jimi Faseke</h3>
+                            <div class="inline-block py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Journal Editor</div>
+                            <p class="text-gray-600">Department of History and International Studies</p>
+                            <p class="text-gray-500">Ajayi Crowther University, Oyo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A2540] text-gray-300 py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_#635BFF08,_transparent_50%)]"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="mb-8 md:mb-0">
+                    <div class="font-display font-bold text-2xl text-white mb-6 flex items-center">
+                        <i class="fas fa-shield-alt mr-3 text-accent"></i> LAJOPSS
+                    </div>
+                    <p class="text-gray-400 mb-4">LASU Journal of Peace and Security Studies</p>
+                    <p class="text-gray-400 px-3 py-1 bg-white/5 inline-block rounded-md">ISSN: XXXX-XXXX</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            About Journal
+                        </a></li>
+                        <li><a href="index.html#scope" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Aims & Scope
+                        </a></li>
+                        <li><a href="editorial-team.html" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Editorial Team
+                        </a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                            <span class="w-2 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                            Contact
+                        </a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 group">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="text-gray-400">Centre for Peace and Security Studies, Lagos State University, Ojo, Lagos, Nigeria</span>
+                        </li>
+                        <li class="flex items-center gap-3 group">
+                            <i class="fas fa-envelope text-accent group-hover:scale-110 transition-transform duration-300"></i>
+                            <a href="mailto:lajopss@lasu.edu.ng" class="text-gray-400 hover:text-accent transition-colors duration-300">lajopss@lasu.edu.ng</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6 text-lg">Follow Us</h4>
+                    <div class="flex space-x-6">
+                        <a href="https://www.facebook.com/profile.php?id=61578610326810&sk=about_contact_and_basic_info" 
+                           class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/lajopss?s=11" 
+                           class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Lagos State University, Ojo. Centre for Peace and Security Studies (CPSS). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
