@@ -112,9 +112,23 @@
                     <a href="index.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
                         <i class="fas fa-home mr-2"></i> Home
                     </a>
-                    <a href="editorial-team.html" class="text-sm lg:text-base text-accent transition-colors duration-300 flex items-center">
-                        <i class="fas fa-users mr-2"></i> Editorial Team
-                    </a>
+                    <div class="relative group">
+                        <button class="text-sm lg:text-base text-accent transition-colors duration-300 flex items-center">
+                            <i class="fas fa-users mr-2"></i> Editorial
+                            <i class="fas fa-chevron-down ml-2 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                          <div class="absolute left-0 mt-2 w-56 rounded-xl bg-white shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 glass-effect border border-gray-100/20">
+                            <a href="editorial-team.html" class="block px-4 py-3 text-sm hover:text-accent hover:bg-accent/5 transition-all duration-300 flex items-center space-x-3">
+                                <i class="fas fa-users-gear text-accent/70"></i>
+                                <span>Editorial Team</span>
+                            </a>
+                            <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-3"></div>
+                            <a href="editorial-consultants.html" class="block px-4 py-3 text-sm hover:text-accent hover:bg-accent/5 transition-all duration-300 flex items-center space-x-3">
+                                <i class="fas fa-user-tie text-accent/70"></i>
+                                <span>Editorial Consultants</span>
+                            </a>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-sm lg:text-base hover:text-accent transition-colors duration-300 flex items-center">
                         <i class="fas fa-envelope mr-2"></i> Contact
                     </a>
@@ -129,9 +143,26 @@
                 <a href="index.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
                     <i class="fas fa-home mr-3"></i> Home
                 </a>
-                <a href="editorial-team.html" class="text-accent transition-colors duration-300 flex items-center">
-                    <i class="fas fa-users mr-3"></i> Editorial Team
-                </a>
+                <div class="relative">
+                    <button id="mobile-dropdown-button" class="w-full text-left text-accent transition-colors duration-300 flex items-center justify-between">
+                        <span class="flex items-center">
+                            <i class="fas fa-users mr-3"></i> Editorial
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                   <div id="mobile-dropdown-menu" class="hidden mt-3 ml-6 flex flex-col space-y-1">
+                        <div class="h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent mb-2"></div>
+                        <a href="editorial-team.html" class="text-primary hover:text-accent transition-all duration-300 flex items-center px-3 py-2 rounded-lg hover:bg-accent/5">
+                            <i class="fas fa-users-gear text-accent/70 mr-3"></i>
+                            <span>Editorial Team</span>
+                        </a>
+                        <a href="editorial-consultants.html" class="text-primary hover:text-accent transition-all duration-300 flex items-center px-3 py-2 rounded-lg hover:bg-accent/5">
+                            <i class="fas fa-user-tie text-accent/70 mr-3"></i>
+                            <span>Editorial Consultants</span>
+                        </a>
+                        <div class="h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent mt-2"></div>
+                    </div>
+                </div>
                 <a href="contact.html" class="text-primary hover:text-accent transition-colors duration-300 flex items-center">
                     <i class="fas fa-envelope mr-3"></i> Contact
                 </a>
@@ -145,7 +176,7 @@
             <div class="text-center relative z-10">
                 <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-6">Editorial Leadership</span>
                 <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 gradient-text tracking-tight">Editorial Team</h1>
-                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Meet the dedicated scholars and experts who ensure the highest standards of academic excellence in our journal.</p>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Meet our distinguished editorial team, dedicated to promoting excellence in peace and security research.</p>
             </div>
         </div>
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#F6F8FA,_transparent_70%)]"></div>
@@ -159,90 +190,11 @@
         </div>
         <div class="container mx-auto px-6">
             <div class="max-w-xl mx-auto text-center mb-16">
-                <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-4">Advisory Board</span>
-                <h2 class="font-display text-4xl font-bold mb-6 text-primary">Editorial Consultants</h2>
-                <p class="text-gray-600">Distinguished leaders and experts guiding our academic excellence.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Consultant 1 -->
-                <div class="card-hover">
-                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
-                        <div class="w-32 h-32 mx-auto mb-6 relative">
-                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
-                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753619321/242cad50-aec2-4704-a53a-0c2f12e242e4_jvg8mk.jpg" alt="Prof. Akinyemi" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. (Sir) Akinwande Bolaji Akinyemi, CFR</h3>
-                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Former Minister of Foreign Affairs</div>
-                        <p class="text-gray-600">President, Academy of International Affairs</p>
-                        <p class="text-gray-500 text-sm">Lagos, Nigeria</p>
-                    </div>
-                </div>
-
-                <!-- Consultant 2 -->
-                <div class="card-hover">
-                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
-                        <div class="w-32 h-32 mx-auto mb-6 relative">
-                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
-                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753619322/969e04e7-fb21-4eb0-b3a5-8f04eafd9f6b_fzrisi.jpg" alt="Prof. Olatunji-Bello" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Ibiyemi Ibilola Olatunji-Bello, mni, NPOM, FSPSP</h3>
-                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Vice Chancellor</div>
-                        <p class="text-gray-600">Lagos State University, Ojo</p>
-                    </div>
-                </div>
-
-                <!-- Consultant 3 -->
-                <div class="card-hover">
-                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
-                        <div class="w-32 h-32 mx-auto mb-6 relative">
-                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
-                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753619323/e0e9a512-17cd-462c-a65c-08261573694b_sdcnet.jpg" alt="Prof. Akinterinwa" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Bolaji Akinterinwa</h3>
-                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Former Director-General, NIIA</div>
-                        <p class="text-gray-600">Achievers University</p>
-                        <p class="text-gray-500 text-sm">Owo, Ondo</p>
-                    </div>
-                </div>
-
-                <!-- Consultant 4 -->
-                <div class="card-hover">
-                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
-                        <div class="w-32 h-32 mx-auto mb-6 relative">
-                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
-                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753619326/6ca7d825-43de-44e3-9b74-6998e8ce86e2_amg3p7.jpg" alt="Prof. Moghalu" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-primary mb-3">Prof. Kingsley Moghalu</h3>
-                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">President and Vice Chancellor</div>
-                        <p class="text-gray-600">African School of Governance</p>
-                        <p class="text-gray-500 text-sm">Kigali, Rwanda</p>
-                    </div>
-                </div>
-
-                <!-- Consultant 5 -->
-                <div class="card-hover">
-                    <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center flex flex-col items-center">
-                        <div class="w-32 h-32 mx-auto mb-6 relative">
-                            <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
-                            <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753619323/a434acbe-ef4d-49da-836c-73f58cd435da_hdnjdz.jpg" alt="Lt Gen Adeosun" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-primary mb-3">Lt Gen Lamidi O Adeosun (Rtd) CFR</h3>
-                        <div class="py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Military Strategy Expert</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Editorial Team Section -->
-    <section class="py-24 relative">
-        <div class="container mx-auto px-6">
-            <div class="max-w-xl mx-auto text-center mb-16">
                 <span class="inline-block py-1 px-3 rounded-full text-sm bg-[#F6F8FA] text-accent mb-4">Core Team</span>
                 <h2 class="font-display text-4xl font-bold mb-6 text-primary">Editorial Team</h2>
                 <p class="text-gray-600">Leading our journal's academic vision and maintaining the highest standards of scholarly excellence.</p>
             </div>
-            <div class="max-w-4xl mx-auto">
+             <div class="max-w-4xl mx-auto">
                 <!-- Editor-in-Chief -->
                 <div class="card-hover mb-16">
                     <div class="glass-effect rounded-3xl p-12 text-center bg-white/40">
@@ -258,7 +210,7 @@
                 </div>
 
                 <!-- Managing and Journal Editors -->
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-3 gap-8">
                     <!-- Managing Editor -->
                     <div class="card-hover">
                         <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center">
@@ -282,6 +234,20 @@
                             <div class="inline-block py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Journal Editor</div>
                             <p class="text-gray-600">Department of History and International Studies</p>
                             <p class="text-gray-500">Ajayi Crowther University, Oyo</p>
+                        </div>
+                    </div>
+
+                    <!-- Associate Editor -->
+                    <div class="card-hover">
+                        <div class="glass-effect rounded-2xl p-8 bg-white/40 h-full text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 relative">
+                                <div class="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-xl"></div>
+                                <img src="https://res.cloudinary.com/dweovytuc/image/upload/f_auto,q_auto/v1753622130/WhatsApp_Image_2025-07-27_at_13.57.00_txxxzg.jpg" alt="Dr. Shekoni" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/90 shadow-lg">
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-primary mb-3">Ajibola Samsideen Shekoni, Ph.D.</h3>
+                            <div class="inline-block py-1 px-3 rounded-full bg-accent/5 text-accent text-sm mb-4">Associate Editor</div>
+                            <p class="text-gray-600">Research Fellow</p>
+                            <p class="text-gray-500">Centre for Peace and Security Studies</p>
                         </div>
                     </div>
                 </div>
@@ -359,11 +325,21 @@
     document.addEventListener('DOMContentLoaded', () => {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileDropdownButton = document.getElementById('mobile-dropdown-button');
+        const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
 
+        // Main mobile menu toggle
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Mobile dropdown toggle
+        mobileDropdownButton.addEventListener('click', () => {
+            mobileDropdownMenu.classList.toggle('hidden');
+            mobileDropdownButton.querySelector('.fa-chevron-down').classList.toggle('rotate-180');
+        });
+
+        // Close mobile menu when clicking links (except dropdown button)
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
